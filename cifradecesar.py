@@ -32,23 +32,25 @@ def criptografa(frase, chave):
 
 def descriptografaComChave(frase, chave):
 	print("DescComChave")
+	
 def descriptografaSemChave(frase):
 	print("DescSemChave")
 
-'''
+
 def desenhalogo():
-	print("/  ]|    ||     ||    \  /    |    |   \    /  _]       /  ]  /  _]/ ___/ /    ||    \ \n"
-  		 "/  /  |  | |   __||  D  )|  o  |    |    \  /  [_       /  /  /  [_(   \_ |  o  ||  D  ) \n"
- 		"/  /   |  | |  |_  |    / |     |    |  D  ||    _]     /  /  |    _]\__  ||     ||    / \n" 
+	print("   /  ]|    ||     ||    \  /    |    |   \    /  _]       /  ]  /  _]/ ___/ /    ||    \ \n"
+  		 "  /  /  |  | |   __||  D  )|  o  |    |    \  /  [_       /  /  /  [_(   \_ |  o  ||  D  ) \n"
+ 		" /  /   |  | |  |_  |    / |     |    |  D  ||    _]     /  /  |    _]\__  ||     ||    / \n" 
 	   "/   \_  |  | |   _] |    \ |  _  |    |     ||   [_     /   \_ |   [_ /  \ ||  _  ||    \ \n"	
 	   "\     | |  | |  |   |  .  \|  |  |    |     ||     |    \     ||     |\    ||  |  ||  .  \ \n"
- 		"\____||____||__|   |__|\_||__|__|    |_____||_____|     \____||_____| \___||__|__||__|\_| \n")
-'''
+ 		" \____||____||__|   |__|\_||__|__|    |_____||_____|     \____||_____| \___||__|__||__|\_| \n\n"
+ 		"\t\tCRIADO POR FELIPE HOMRICH MELCHIOR - UNIPAMPA CAMPUS ALEGRETE")
+
 
 if __name__ == '__main__':
 	arguments = getArguments();
 
-	#desenhalogo()
+	desenhalogo()
 	
 	if(arguments.opcao == True):
 		if(arguments.chave != None):
