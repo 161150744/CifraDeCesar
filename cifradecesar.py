@@ -1,6 +1,7 @@
 #!usr/bin/python
 
 import argparse
+import alphabet
 
 def getArguments():
 	parser = argparse.ArgumentParser(
