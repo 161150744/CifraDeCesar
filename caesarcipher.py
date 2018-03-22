@@ -1,6 +1,7 @@
 import sys
 import os
 import platform
+import webbrowser
 
 from banner_script import *
 from cifra import *
@@ -26,14 +27,18 @@ def criptografa():
 	except ValueError:
 		print("ERRO! - A chave deve ser um número")
 
+	resultado = list(texto)
+
 	if((chave < 0) or (chave > 26)):
 		print("ERRO! - A chave deve ser um numero valido em relação ao alfabeto")
 		sys.exit()
 
 	for i in range(0, len(texto)):
-		resultado = cifra(texto[i], chave)
+		resultado[i] = cifra(texto[i], chave)
 
-	print(resultado)
+	print()
+	print("O Texto cifrado é esse =>", "".join(resultado))
+
 
 def descriptografaSemChave():
 	limpaTela()
