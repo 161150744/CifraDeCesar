@@ -3,6 +3,7 @@ import os
 import platform
 
 from banner_script import *
+from cifra import *
 
 def limpaTela():
 	so = platform.system()
@@ -20,7 +21,6 @@ def criptografa():
 	except ValueError:
 		print("ERRO! - A entrada deve ser um texto/frase")
 
-
 	try:
 		chave = int(input("Digite a chave para ser na criptografado => "))
 	except ValueError:
@@ -30,11 +30,10 @@ def criptografa():
 		print("ERRO! - A chave deve ser um numero valido em relação ao alfabeto")
 		sys.exit()
 
-	lista = [texto]
+	for i in range(0, len(texto)):
+		resultado = cifra(texto[i], chave)
 
-	for i in lista:
-		print(i)
-
+	print(resultado)
 
 def descriptografaSemChave():
 	limpaTela()
