@@ -1,7 +1,7 @@
-def cifra(letra, chave):
+def cifra(letra, chave, opcao):
      # print(letra, chave)
 
-     alfabeto = {
+     alfabeto = { # Dicionario com o alfabeto
           0 : 'A',
           1 : 'B',
           2 : 'C',
@@ -31,19 +31,28 @@ def cifra(letra, chave):
           26 : ' '
      }
 
-     for key in alfabeto:
+     for key in alfabeto: # Armazena o indice da letra passada
           if(letra == alfabeto[key]):
                indice_letra = key
 
      # print(indice_letra)
-
      if(indice_letra == 26):
-          return alfabeto[26]
+               return alfabeto[26]
 
-     for i in range(0, chave):
-          if((indice_letra + 1) > 26):
-               indice_letra = 0
-          indice_letra += 1
-          # print(indice_letra)
+     if(opcao == 1): # Criptografa
+          for i in range(0, chave):
+               if((indice_letra + 1) > 26):
+                    indice_letra = 0
+               indice_letra += 1
+               # print(indice_letra)
 
-     return alfabeto[indice_letra]
+          return alfabeto[indice_letra]
+     
+     else: # Descriptografa
+          for i in range(0, chave):
+               if((indice_letra - 1) < 0):
+                    indice_letra = 25
+               indice_letra -= 1
+               # print(indice_letra)
+
+          return alfabeto[indice_letra]

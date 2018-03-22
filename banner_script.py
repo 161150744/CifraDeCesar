@@ -6,7 +6,7 @@ except ImportError:
 
 colorama.init()
 
-def desenhaBanner():
+def desenhaBanner(): # Funcao que desenha o menu principal
 	banner = """
  ██████╗██╗███████╗██████╗  █████╗     ██████╗ ███████╗     ██████╗███████╗███████╗ █████╗ ██████╗ 
 ██╔════╝██║██╔════╝██╔══██╗██╔══██╗    ██╔══██╗██╔════╝    ██╔════╝██╔════╝██╔════╝██╔══██╗██╔══██╗
@@ -16,7 +16,6 @@ def desenhaBanner():
  ╚═════╝╚═╝╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝    ╚═════╝ ╚══════╝     ╚═════╝╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝
  			Criado por Felipe Homrich Melchior - UNIPAMPA
  	        		www.homdreen.github.io
- 			caesarcipher.py --help para mais funções
 
  			- [1] - CRIPTOGRAFAR
  			- [2] - DESCRIPTOGRAFAR SEM CHAVE
@@ -26,7 +25,7 @@ def desenhaBanner():
 
 	print(Fore.WHITE+banner)
 
-def desenhaCript():
+def desenhaCript(): # Funcao que desenha o menu Criptografa
 	banner = """ 
  ██████╗██████╗ ██╗██████╗ ████████╗ ██████╗  ██████╗ ██████╗  █████╗ ███████╗ █████╗ 
 ██╔════╝██╔══██╗██║██╔══██╗╚══██╔══╝██╔═══██╗██╔════╝ ██╔══██╗██╔══██╗██╔════╝██╔══██╗
@@ -40,7 +39,7 @@ def desenhaCript():
 
 	print(Fore.YELLOW+banner)
 
-def desenhaDecript():
+def desenhaDecript():  # Funcao que desenha o menu descriptografa Sem Chave
 	banner = """
 ██████╗ ███████╗███████╗ ██████╗██████╗ ██╗██████╗ ████████╗ ██████╗  ██████╗ ██████╗  █████╗ ███████╗ █████╗ 
 ██╔══██╗██╔════╝██╔════╝██╔════╝██╔══██╗██║██╔══██╗╚══██╔══╝██╔═══██╗██╔════╝ ██╔══██╗██╔══██╗██╔════╝██╔══██╗
@@ -55,7 +54,7 @@ def desenhaDecript():
 	
 	print(Fore.YELLOW+banner)
 
-def desenhaDecriptKey():
+def desenhaDecriptKey():  # Funcao que desenha o menu descriptografa com chave
 	banner = """
 ██████╗ ███████╗███████╗ ██████╗██████╗ ██╗██████╗ ████████╗ ██████╗  ██████╗ ██████╗  █████╗ ███████╗ █████╗ 
 ██╔══██╗██╔════╝██╔════╝██╔════╝██╔══██╗██║██╔══██╗╚══██╔══╝██╔═══██╗██╔════╝ ██╔══██╗██╔══██╗██╔════╝██╔══██╗

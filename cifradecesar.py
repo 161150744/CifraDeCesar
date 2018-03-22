@@ -1,69 +1,113 @@
 #!usr/bin/python
 
-import argparse
-import alphabet
+import sys
+import os
+import platform
 
-def getArguments():
-	parser = argparse.ArgumentParser(
-		description="Um programa que Criptografa e Descriptografa Cifra de Cesar")
+from banner_script import *
+from cifra import *
+
+def limpaTela(): # Funcao usada para limpar a tela no windows e nos outros SO
+	so = platform.system()
+	if(so == "Windows"):
+		os.system("cls")
+	else:
+		os.system("clear")
+
+def criptografa(): # Funcao que criptografa o texto com uma chave
+	limpaTela()
+	desenhaCript()
+
+	try:
+		texto = input("Digite o texto para ser criptografado => ").upper()
+	except ValueError:
+		print("ERRO! - A entrada deve ser um texto/frase")
+
+	try:
+		chave = int(input("Digite a chave para ser na criptografado => "))
+	except ValueError:
+		print("ERRO! - A chave deve ser um número")
+
+	resultado = list(texto)
+
+	if((chave < 0) or (chave > 26)):
+		print("ERRO! - A chave deve ser um numero valido em relação ao alfabeto")
+		sys.exit()
+
+	for i in range(0, len(texto)):
+		resultado[i] = cifra(texto[i], chave, 1)
+
+	print()
+	print(Fore.YELLOW+"O Texto cifrado é esse =>", Fore.WHITE+"".join(resultado))
+
+
+def descriptografaSemChave(): # Funcao que descriptografa sem chave, gerando muitas respostas
+	limpaTela()
+	desenhaDecript()
+
+	try:
+		texto = input("Digite o texto para ser criptografado => ").upper()
+	except ValueError:
+		print("ERRO! - A entrada deve ser um texto/frase")
+
+	resultado = list(texto)
+
+	for chave in range(0, 26):
+		for i in range(0, len(texto)):
+			resultado[i] = cifra(texto[i], chave, 2)
+
+		print()
+		print(Fore.YELLOW+"O Texto descriptografado com a chave ", chave, " é esse => ", Fore.WHITE+"".join(resultado))
+
+
+def descriptografaComChave(): # Funcao que descriptografa um texto com uma chave específica
+	limpaTela()
+	desenhaDecriptKey()
+
+	try:
+		texto = input("Digite o texto para ser criptografado => ").upper()
+	except ValueError:
+		print("ERRO! - A entrada deve ser um texto/frase")
+
+	try:
+		chave = int(input("Digite a chave para ser na criptografado => "))
+	except ValueError:
+		print("ERRO! - A chave deve ser um número")
+
+	resultado = list(texto)
+
+	for i in range(0, len(texto)):
+		resultado[i] = cifra(texto[i], chave, 2)
+
+	print()
+	print(Fore.YELLOW+"O Texto descriptografado é esse => ", Fore.WHITE+"".join(resultado))
+
+def menu(opcao): # Funcao de tomada de decisao do menu
+	if(opcao == 1):
+		criptografa()
+
+	elif(opcao == 2):
+		descriptografaSemChave()
+
+	elif(opcao == 3):
+		descriptografaComChave()
 	
-	parser.add_argument('-t', action = 'store', dest = 'frase', required = True,
-					  default = 'Uma frase eh necessaria para a criptografia/descriptografia',
-					  help = 'Frase a ser criptografada/descriptografada')
-
-	parser.add_argument('-c', action = 'store_true', dest = 'opcao', required = False, 
-					  default = None,
-					  help = 'Criptografa uma frase')
-
-	parser.add_argument('-d', action = 'store_false', dest = 'opcao',  required = False, 
-					  default = None,
-					  help = 'Descriptografa uma frase')
-
-	parser.add_argument('-k', action = 'store', dest = 'chave', required = False,
-					   default = None,
-					   help = 'Chave usada para criptografar/descriptografar a frase')
-
-	arguments = parser.parse_args()
-
-	return arguments
+	else:
+		print("Até a próxima!")
+		sys.exit()
 
 
-def criptografa(frase, chave):
-	print(frase,chave)
+def main(): # Funcao main
+	limpaTela()
 
-def descriptografaComChave(frase, chave):
-	print("DescComChave")
-	
-def descriptografaSemChave(frase):
-	print("DescSemChave")
+	desenhaBanner()
 
+	try:
+		opcao = int(input("Digite a opcao desejada => "))
+	except ValueError:
+		print("ERRO! - O valor deve ser um numero inteiro!")
 
-def desenhalogo():
-	print("   /  ]|    ||     ||    \  /    |    |   \    /  _]       /  ]  /  _]/ ___/ /    ||    \ \n"
-  		 "  /  /  |  | |   __||  D  )|  o  |    |    \  /  [_       /  /  /  [_(   \_ |  o  ||  D  ) \n"
- 		" /  /   |  | |  |_  |    / |     |    |  D  ||    _]     /  /  |    _]\__  ||     ||    / \n" 
-	   "/   \_  |  | |   _] |    \ |  _  |    |     ||   [_     /   \_ |   [_ /  \ ||  _  ||    \ \n"	
-	   "\     | |  | |  |   |  .  \|  |  |    |     ||     |    \     ||     |\    ||  |  ||  .  \ \n"
- 		" \____||____||__|   |__|\_||__|__|    |_____||_____|     \____||_____| \___||__|__||__|\_| \n\n"
- 		"\t\tCRIADO POR FELIPE HOMRICH MELCHIOR - UNIPAMPA CAMPUS ALEGRETE")
-
+	menu(opcao)
 
 if __name__ == '__main__':
-	arguments = getArguments();
-
-	desenhalogo()
-	
-	if(arguments.opcao == True):
-		if(arguments.chave != None):
-			criptografa(arguments.frase, arguments.chave)
-		else:
-			print("Para Criptografar uma frase, o uso de uma chave eh obrigatoria")
-			exit(1)
-
-	if(arguments.opcao == False):
-		if(arguments.chave != None):
-			descriptografaComChave(arguments.frase, arguments.chave)
-		else:
-			descriptografaSemChave(arguments.frase)
-
-
+	main() # chamada main
