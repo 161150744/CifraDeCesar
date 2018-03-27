@@ -18,8 +18,10 @@ def desenhaBanner(): # Funcao que desenha o menu principal
  	        		www.homdreen.github.io
 
  			- [1] - CRIPTOGRAFAR
- 			- [2] - DESCRIPTOGRAFAR SEM CHAVE
- 			- [3] - DESCRIPTOGRAFAR COM CHAVE
+ 			- [2] - CRIPTOGRAFAR ROT13
+ 			- [3] - DESCRIPTOGRAFAR SEM CHAVE
+ 			- [4] - DESCRIPTOGRAFAR COM CHAVE
+ 			- [5] - DESCRIPTOGRAFAR ROT13
 
  			"""
 
@@ -37,6 +39,20 @@ def desenhaCript(): # Funcao que desenha o menu Criptografa
 
  """
 
+	print(Fore.YELLOW+banner)
+
+def desenhaCriptROT13():  # Funcao que desenha o menu descriptografa com chave
+	banner = """
+██████╗  ██████╗ ████████╗ ██╗██████╗ 
+██╔══██╗██╔═══██╗╚══██╔══╝███║╚════██╗
+██████╔╝██║   ██║   ██║   ╚██║ █████╔╝
+██╔══██╗██║   ██║   ██║    ██║ ╚═══██╗
+██║  ██║╚██████╔╝   ██║    ██║██████╔╝
+╚═╝  ╚═╝ ╚═════╝    ╚═╝    ╚═╝╚═════╝ 
+                                      
+							                   
+							                      """
+	
 	print(Fore.YELLOW+banner)
 
 def desenhaDecript():  # Funcao que desenha o menu descriptografa Sem Chave
@@ -64,6 +80,19 @@ def desenhaDecriptKey():  # Funcao que desenha o menu descriptografa com chave
 ╚═════╝ ╚══════╝╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝╚═╝        ╚═╝    ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝  ╚═╝
 							                      COM CHAVE
 
+
+							                      """
+	
+	print(Fore.YELLOW+banner)
+
+def desenhaDecriptKey():  # Funcao que desenha o menu descriptografa com chave
+	banner = """
+██████╗ ███████╗███████╗ ██████╗██████╗ ██╗██████╗ ████████╗    ██████╗  ██████╗ ████████╗ ██╗██████╗ 
+██╔══██╗██╔════╝██╔════╝██╔════╝██╔══██╗██║██╔══██╗╚══██╔══╝    ██╔══██╗██╔═══██╗╚══██╔══╝███║╚════██╗
+██║  ██║█████╗  ███████╗██║     ██████╔╝██║██████╔╝   ██║       ██████╔╝██║   ██║   ██║   ╚██║ █████╔╝
+██║  ██║██╔══╝  ╚════██║██║     ██╔══██╗██║██╔═══╝    ██║       ██╔══██╗██║   ██║   ██║    ██║ ╚═══██╗
+██████╔╝███████╗███████║╚██████╗██║  ██║██║██║        ██║       ██║  ██║╚██████╔╝   ██║    ██║██████╔╝
+╚═════╝ ╚══════╝╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝╚═╝        ╚═╝       ╚═╝  ╚═╝ ╚═════╝    ╚═╝    ╚═╝╚═════╝ 
 
 							                      """
 	

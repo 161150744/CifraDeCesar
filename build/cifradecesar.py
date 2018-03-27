@@ -40,6 +40,25 @@ def criptografa(): # Funcao que criptografa o texto com uma chave
 	print()
 	print(Fore.YELLOW+"O Texto cifrado é esse =>", Fore.WHITE+"".join(resultado))
 
+def criptografaROT13(): # Funcao que criptografa com chave 13, padrao da ROT13
+	limpaTela()
+	desenhaCriptROT13()
+
+	chave = 13
+
+	try:
+		texto = input("Digite o texto para ser criptografado => ").upper()
+	except ValueError:
+		print("ERRO! - A entrada deve ser um texto/frase")
+
+	resultado = list(texto)
+
+	for i in range(0, len(texto)):
+		resultado[i] = cifra(texto[i], chave, 1)
+
+	print()
+	print(Fore.YELLOW+"O Texto cifrado é esse =>", Fore.WHITE+"".join(resultado))
+
 
 def descriptografaSemChave(): # Funcao que descriptografa sem chave, gerando muitas respostas
 	limpaTela()
@@ -82,16 +101,42 @@ def descriptografaComChave(): # Funcao que descriptografa um texto com uma chave
 	print()
 	print(Fore.YELLOW+"O Texto descriptografado é esse => ", Fore.WHITE+"".join(resultado))
 
+def descriptografaROT13(): # Funcao que descriptografa um texto com uma chave específica
+	limpaTela()
+	desenhaDecriptKey()
+
+	chave = 13
+
+	try:
+		texto = input("Digite o texto para ser criptografado => ").upper()
+	except ValueError:
+		print("ERRO! - A entrada deve ser um texto/frase")
+
+	resultado = list(texto)
+
+	for i in range(0, len(texto)):
+		resultado[i] = cifra(texto[i], chave, 2)
+
+	print()
+	print(Fore.YELLOW+"O Texto descriptografado é esse => ", Fore.WHITE+"".join(resultado))
+
+
 def menu(opcao): # Funcao de tomada de decisao do menu
 	if(opcao == 1):
 		criptografa()
 
 	elif(opcao == 2):
-		descriptografaSemChave()
+		criptografaROT13()
 
 	elif(opcao == 3):
+		descriptografaSemChave()
+
+	elif(opcao == 4):
 		descriptografaComChave()
 	
+	elif(opcao == 5):
+		descriptografaROT13()
+
 	else:
 		print("Até a próxima!")
 		sys.exit()
